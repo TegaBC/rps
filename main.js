@@ -11,7 +11,14 @@ function computerPlay(){
 }
 
 function clientPlay(){
-   let choice = prompt("Rock, Paper or Scissors?").toLowerCase()
+   let choice = prompt("Rock, Paper or Scissors?")
+   if (!choice) 
+   {
+        alert("Client did not choose anything.")
+       return
+   }
+   choice = choice.toLowerCase()
+   
    if (choice === "rock" || choice === "paper" || choice === "scissors"){
         let cpuChoice = computerPlay()
         let gameWon = false
@@ -53,15 +60,18 @@ function clientPlay(){
        }
 
        if (gameWon === 0){
-           console.log("You drew!")
+           alert("You drew! CPU chose: " + cpuChoice +".")
        }
        else if(gameWon){
-           console.log("You Won!")
+            alert("You Won! CPU chose: " + cpuChoice +".")
        }
        else{
-           console.log("You lost!")
+            alert("You lost! CPU chose: " + cpuChoice +".")
        }
 
+   }
+   else{
+        alert("Client did not choose a valid...")
    }
 }
 
