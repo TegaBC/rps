@@ -52,7 +52,6 @@ function clientPlay(){
                 break
        }
 
-       console.log(gameWon)
        if (gameWon === 0){
            console.log("You drew!")
        }
