@@ -1,0 +1,48 @@
+.score-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(136, 217, 154);
+    align-items: center;
+}
+.score-container p{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800px;
+    font-size: 30px;
+}
+.title{
+    margin: 0;
+    padding-top: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800px;
+    font-size: 120px;
+}
+
+.controls-container{
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: 800px;
+    font-size: 150px;
+    background-color: rgb(137, 194, 218);
+    color: black;
+}
+
+.controls-container button{
+    font-size: 100px;
+    flex-shrink: 1;
+    background-color: rgb(207, 137, 218);
+    height: 300px;
+    width: 300px;
+    border-radius: 12px;
+    border: none;
+}
+
+.result-container{
+    display: flex;
+    padding-top: 15px;
+    justify-content: center;
+    background-color: rgb(137, 194, 218);
+}
+
+.result-container p{
+    font-size: 30px;
+}
