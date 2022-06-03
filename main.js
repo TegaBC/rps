@@ -1,17 +1,20 @@
-let options = ["rock", "paper", "scissors"]
+let options = ["rock", "paper", "scissors"];
+let cpuScore = 0
+let clientScore = 0
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-  }
+  };
 
 function computerPlay(){
-    let chosenNumber = getRandomInt(options.length)
-    let chosenMaterial = options[chosenNumber]
-    return chosenMaterial
-}
+    let chosenNumber = getRandomInt(options.length);
+    let chosenMaterial = options[chosenNumber];
+    return chosenMaterial;
+};
 
-function clientPlay(){
-   let choice = prompt("Rock, Paper or Scissors?")
+function clientPlay(e){
+    let choice = e.target.parentNode.className;
+   
    if (!choice) 
    {
         alert("Client did not choose anything.")
@@ -60,14 +63,20 @@ function clientPlay(){
        }
 
        if (gameWon === 0){
-           alert("You drew! CPU chose: " + cpuChoice +".")
+           alert("You drew! CPU chose: " + cpuChoice +".");
        }
        else if(gameWon){
-            alert("You Won! CPU chose: " + cpuChoice +".")
+            alert("You Won! CPU chose: " + cpuChoice +".");
+            const scoreElement = document.querySelector(".client-score");
+            clientScore++
+            scoreElement.textContent = "Your Score: " + clientScore
        }
        else{
-            alert("You lost! CPU chose: " + cpuChoice +".")
-       }
+            alert("You lost! CPU chose: " + cpuChoice +".");
+            const scoreElement = document.querySelector(".cpu-score");
+            cpuScore++
+            scoreElement.textContent = "CPU Score: " + cpuScore
+       };
 
    }
    else{
@@ -75,6 +84,7 @@ function clientPlay(){
    }
 }
 
-while (true){
-    clientPlay()
-}
+const buttons = document.querySelectorAll("button");
+buttons.forEach(button => {
+    button.addEventListener("click", clientPlay)
+});
