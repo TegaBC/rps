@@ -63,24 +63,48 @@ function clientPlay(e){
        }
 
        if (gameWon === 0){
-           alert("You drew! CPU chose: " + cpuChoice +".");
+            let result = document.querySelector(".result");//.textContent = "You drew!"
+            result.textContent = "You Drew!";
        }
        else if(gameWon){
-            alert("You Won! CPU chose: " + cpuChoice +".");
+            let result = document.querySelector(".result");
+            result.textContent = "You Won! CPU chose: " + cpuChoice +".";
+            clientScore++;
             const scoreElement = document.querySelector(".client-score");
-            clientScore++
-            scoreElement.textContent = "Your Score: " + clientScore
+            scoreElement.textContent = "Your Score: " + clientScore;
        }
        else{
-            alert("You lost! CPU chose: " + cpuChoice +".");
+            let result = document.querySelector(".result");
+            result.textContent = "You Lost! CPU chose: " + cpuChoice +".";
+            cpuScore++;
             const scoreElement = document.querySelector(".cpu-score");
-            cpuScore++
-            scoreElement.textContent = "CPU Score: " + cpuScore
+            scoreElement.textContent = "CPU Score: " + cpuScore;
        };
-
    }
    else{
-        alert("Client did not choose a valid...")
+        alert("Client did not choose a valid...");
+   }
+
+   function resetScores(cpuLost){
+       cpuScore = 0;
+       clientScore = 0;
+       let cpuElement = document.querySelector(".cpu-score");
+       cpuElement.textContent = "CPU Score: 0";
+       let clientElement = document.querySelector(".client-score");
+       clientElement.textContent = "Your Score: 0";
+
+       if (cpuLost) {
+           alert("You Won!!!")}
+        else{
+            alert("You Lost!!!")
+        }
+   }
+
+   if (cpuScore === 5){
+        resetScores(false);
+   }
+   else if (clientScore === 5){
+        resetScores(true);
    }
 }
 
